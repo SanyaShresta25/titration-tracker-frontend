@@ -10,6 +10,7 @@ const MoleculeViewer = ({ smiles }: { smiles: string }) => {
     if (!viewerRef.current) return;
     const element = viewerRef.current;
     setVisible(false);
+
     setTimeout(() => {
       element.innerHTML = "";
 
@@ -17,7 +18,8 @@ const MoleculeViewer = ({ smiles }: { smiles: string }) => {
         backgroundColor: "white",
       });
 
-      fetch("http://localhost:5000/sdf", {
+      // Use VITE_BACKEND_URL from .env
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/sdf`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ smiles }),
@@ -30,13 +32,12 @@ const MoleculeViewer = ({ smiles }: { smiles: string }) => {
           viewer.render();
           setVisible(true);
 
-          // 🎉 Confetti on NaCl
           if (smiles === "Cl[Na]") {
             confetti({
               particleCount: 100,
               spread: 70,
               origin: { y: 0.6 },
-              colors: ["#a78bfa", "#ec4899"]
+              colors: ["#a78bfa", "#ec4899"],
             });
           }
         })
@@ -49,7 +50,8 @@ const MoleculeViewer = ({ smiles }: { smiles: string }) => {
   return (
     <div className="text-center">
       <div className="mb-4 text-sm text-gray-600">
-        SMILES: <code className="bg-gray-100 px-2 py-1 rounded font-mono">{smiles}</code>
+        SMILES:{" "}
+        <code className="bg-gray-100 px-2 py-1 rounded font-mono">{smiles}</code>
       </div>
       <div className="mb-4 text-sm text-gray-600 italic">
         {smiles === "Cl[Na]"

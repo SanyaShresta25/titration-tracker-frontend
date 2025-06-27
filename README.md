@@ -1,69 +1,47 @@
-# React + TypeScript + Vite
+## 💻 Frontend – Titration Analyzer UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend is a React application that provides the user interface for uploading titration videos, tracking real-time progress, and visualizing molecular structures.
 
-Currently, two official plugins are available:
+### 📂 Folder: `titration-tracker-frontend/`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🚀 Run Frontend with Docker
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd titration-tracker-frontend
+docker build -t titration-frontend .
+docker run -d -p 3000:3000 titration-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Access the frontend at: [http://localhost:3000](http://localhost:3000)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🛠️ Run Frontend in Development Mode (without Docker)
+
+```bash
+cd titration-tracker-frontend
+npm install
+npm run dev   # or npm start, depending on your setup
 ```
+
+The app will start on: [http://localhost:3000](http://localhost:3000) or [http://localhost:5173](http://localhost:5173) *(if using Vite)*
+
+---
+
+### ⚙️ Optional: Environment Variable
+
+Create a `.env` file if your app makes backend API calls.
+
+Example:
+
+```env
+VITE_BACKEND_URL=http://localhost:5000
+```
+
+---
+
+### ✨ Key Features
+
+* 📄 Upload video of titration process
+* 📊 View real-time analysis progress
+* ⚛️ Visualize molecular structures using SMILES
