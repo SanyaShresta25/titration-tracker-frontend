@@ -62,12 +62,14 @@ const MoleculeViewer = ({ smiles }: { smiles: string }) => {
           ? "HCl and phenolphthalein — initially colorless."
           : ""}
       </div>
-      <div
-        ref={viewerRef}
-        className={`w-[400px] h-[400px] mx-auto transition-opacity duration-700 ${
-          visible ? "opacity-100" : "opacity-0"
-        }`}
-      />
+     <div
+  ref={viewerRef}
+  className={`relative z-0 w-[400px] h-[400px] max-w-full mx-auto border border-gray-200 rounded-lg overflow-hidden transition-opacity duration-700 ${
+    visible ? "opacity-100" : "opacity-0"
+  }`}
+/>
+
+      
     </div>
   );
 };

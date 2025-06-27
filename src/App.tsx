@@ -1,9 +1,9 @@
+import { Atom, Beaker, TrendingUp, Upload } from "lucide-react";
 import { useState } from "react";
-import { Upload, Beaker, Atom, TrendingUp } from "lucide-react";
-import MoleculeViewer from "./components/MoleculeViewer";
 import FrameAnalyzer from "./components/FrameAnalyzer";
-import VideoUploader from "./components/VideoUploader";
+import MoleculeViewer from "./components/MoleculeViewer";
 import StatusCard from "./components/StatusCard";
+import VideoUploader from "./components/VideoUploader";
 
 function App() {
   const [video, setVideo] = useState<HTMLVideoElement | null>(null);
@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-25 to-blue-50">
+
       <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -120,6 +121,7 @@ function App() {
         )}
       </main>
     </div>
+
   );
 }
 
