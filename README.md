@@ -1,6 +1,6 @@
 ## 💻 Frontend – Titration Analyzer UI
 
-The frontend is a React application that provides the user interface for uploading titration videos, tracking real-time progress, and visualizing molecular structures.
+The frontend is a React application that provides the user interface for uploading titration videos, tracking real-time progress, and visualizing molecular structure
 
 ### 📂 Folder: `titration-tracker-frontend/`
 
